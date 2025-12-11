@@ -9,26 +9,30 @@ import About from "./pages/About";
 import Products from "./pages/Products";
 import DefaultLayout from "./layouts/DefaultLayout";
 import NotFound from "./pages/NotFound";
+import { BudgetProvider } from "./context/BudgetContext";
 import SingleProduct from './pages/SingleProduct'
+
 
 function App() {
 
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<DefaultLayout />}>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/chi-siamo" element={<About />} />
-            <Route path="/prodotti">
-              <Route path="" element={<Products />} />
-              <Route path=":id" element={<SingleProduct />} />
+      <BudgetProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<DefaultLayout />}>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/chi-siamo" element={<About />} />
+              <Route path="/prodotti">
+                <Route path="" element={<Products />} />
+                <Route path=":id" element={<SingleProduct />} />
+              </Route>
+              <Route path="*" element={<NotFound />} />
             </Route>
-            <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+          </Routes>
+        </BrowserRouter>
+      </BudgetProvider>
     </>
   )
 }
