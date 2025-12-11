@@ -10,6 +10,7 @@ import Products from "./pages/Products";
 import DefaultLayout from "./layouts/DefaultLayout";
 import NotFound from "./pages/NotFound";
 import { BudgetProvider } from "./context/BudgetContext";
+import Navbar from "./components/Navbar";
 import SingleProduct from './pages/SingleProduct'
 
 
